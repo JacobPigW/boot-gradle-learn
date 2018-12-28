@@ -1,0 +1,56 @@
+ext {
+    //例如 gradle buildTar -xtest -Pprofile=slave
+    if (project.hasProperty('profile')) {
+        profile = project['profile']
+    } else {
+        profile = "dev"
+    }
+    println "profile : " + profile
+
+    if (project.hasProperty('submodule')) {
+        submodule = project['submodule']
+    } else {
+        submodule = "api"
+    }
+    println "submodule : " + submodule
+}
+
+ext.versions = [
+        boot     : '2.0.2.RELEASE',
+        junit    : '4.12',
+        lombok   : '1.16.20',
+        joda     : '2.9.9',
+        mysql    : '5.1.38',
+        hikariCP : '3.1.0',
+        io       : '2.6',
+        bean     : '1.9.3',
+        lang3    : '3.7',
+        caffeine : '2.6.2',
+        vavr     : '0.9.2',
+        fastjson : '1.2.47',
+]
+
+ext.libraries = [
+        "boot"     : "org.springframework.boot:spring-boot-starter:${versions.boot}",
+        "cache"    : "org.springframework.boot:spring-boot-starter-cache:${versions.boot}",
+        "undertow" : "org.springframework.boot:spring-boot-starter-undertow:${versions.boot}",
+        "aop"      : "org.springframework.boot:spring-boot-starter-aop:${versions.boot}",
+        "web"      : "org.springframework.boot:spring-boot-starter-web:${versions.boot}",
+        "test"     : "org.springframework.boot:spring-boot-starter-test:${versions.boot}",
+        "jpa"      : "org.springframework.boot:spring-boot-starter-data-jpa:${versions.boot}",
+
+        "lang3"    : "org.apache.commons:commons-lang3:${versions.lang3}",
+        "io"       : "commons-io:commons-io:${versions.io}",
+        "bean"     : "commons-beanutils:commons-beanutils:${versions.bean}",
+
+        "caffeine" : "com.github.ben-manes.caffeine:caffeine:${versions.caffeine}",
+
+        "lombok"   : "org.projectlombok:lombok:${versions.lombok}",
+        "joda"     : "joda-time:joda-time:${versions.joda}",
+        "vavr"     : "io.vavr:vavr:${versions.vavr}",
+        "fastjson" : "com.alibaba:fastjson:${versions.fastjson}",
+
+        "mysql"    : "mysql:mysql-connector-java:${versions.mysql}",
+
+        "junit"    : "junit:junit:${versions.junit}"
+]

@@ -1,0 +1,9 @@
+rootProject.name = 'learn'
+
+include 'api'
+include 'keepwatch'
+include 'commons'
+include 'config'
+include 'device'
+include 'cmdb'
+

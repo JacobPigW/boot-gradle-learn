@@ -1,0 +1,15 @@
+dependencies {
+    compile project(':commons')
+    compile project(':cmdb')
+}
+
+jar {
+    manifest {
+        attributes(
+                'Class-Path': configurations.compile.collect { it.getName() }.join(' '),
+                'Main-Class': 'com.jacob.learn.device.Device'
+        )
+    }
+}
+
+apply from: '../package.gradle'

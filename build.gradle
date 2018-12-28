@@ -1,0 +1,46 @@
+apply from: 'dependency.gradle'
+
+allprojects {
+    repositories {
+        mavenCentral()
+    }
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: 'distribution'
+
+    group 'com.jacob'
+    //version '1.0.0'
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    sourceSets {
+        main {
+            java {
+                srcDirs 'src/main/java'
+            }
+        }
+    }
+
+    dependencies {
+        compile (
+                libraries.lang3,
+                libraries.io,
+                libraries.lombok,
+                libraries.mysql,
+                libraries.jpa,
+                libraries.undertow,
+                libraries.aop,
+                libraries.vavr,
+                libraries.fastjson
+        )
+
+        compile (libraries.web) {
+            exclude module: "spring-boot-starter-tomcat"
+        }
+    }
+}
+

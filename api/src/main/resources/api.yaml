@@ -1,0 +1,13 @@
+server:
+  address: 0.0.0.0
+  servlet:
+      context-path: /sth
+
+spring:
+  cache:
+    type: caffeine
+    cache-names:
+      - syslogs-api
+      - syslogs
+    caffeine:
+      spec: maximumSize=500, expireAfterWrite=60s
